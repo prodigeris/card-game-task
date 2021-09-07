@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Card extends Model
 {
-    public function decks(): HasMany
+    public function physicalCards(): HasMany
     {
-        return $this->hasMany(Deck::class);
+        return $this->hasMany(PhysicalCard::class);
     }
 }

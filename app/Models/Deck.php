@@ -3,12 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Deck extends Model
 {
-    public function hand(): HasOne
+    public function cards(): HasMany
     {
-        return $this->hasOne(PlayerHand::class);
+        return $this->hasMany(PhysicalCard::class);
     }
 }
