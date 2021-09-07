@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CardController;
 use App\Http\Controllers\DeckController;
+use App\Http\Controllers\DrawCardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,3 +18,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/cards', [CardController::class, 'index']);
 Route::get('/decks', [DeckController::class, 'index']);
+
+Route::patch('/decks/{deck}/draw', [DrawCardController::class, 'draw']);

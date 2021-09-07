@@ -2,7 +2,9 @@
 
 namespace App\Exceptions;
 
+use App\Domain\Deck\Exception\EmptyDeckException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\JsonResponse;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -34,8 +36,15 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
-        $this->reportable(function (Throwable $e) {
-            //
+        $this->renderable(function (Throwable $e) {
+            if($e instanceof EmptyDeckException) {
+                return new JsonResponse(
+                    [
+                        'success' => false,
+                        'error' => 'EMPTY_DECK',
+                    ]
+                );
+            }
         });
     }
 }
