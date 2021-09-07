@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Domain\Deck\UseCase;
 
-
 use App\Domain\Deck\Exception\EmptyDeckException;
 use App\Domain\PhysicalCard\Exception\PhysicalCardNotFoundException;
 use App\Domain\PhysicalCard\Repository\PhysicalCardRepository;
